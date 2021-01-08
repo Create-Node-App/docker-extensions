@@ -1,0 +1,23 @@
+name: Create and Build Docker
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: yarn --no-progress --non-interactive --no-lockfile
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - name: Create app using web base
+        run: npx create-react-webpack-project app
+      - name: Lint fix and build
+        run: |
+          cd app
+          yarn lint:fix
+          yarn docker:dev:build
+          yarn docker:prod:build
