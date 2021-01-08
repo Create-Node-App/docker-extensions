@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '12'
       - name: Create app using web base
-        run: npx create-react-webpack-project app
+        run: npx create-react-webpack-project app --docker
       - name: Lint fix and build
         run: |
           cd app
