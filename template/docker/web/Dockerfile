@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 COPY . .
 RUN yarn
 EXPOSE 3000
-CMD [ "yarn", "serve:dev" ]
+CMD [ "yarn", "start" ]
 
 
 FROM development as builder
