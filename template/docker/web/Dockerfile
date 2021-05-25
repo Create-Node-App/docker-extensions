@@ -2,7 +2,7 @@ FROM node:12.14 as development
 WORKDIR /usr/src/app
 COPY . .
 RUN yarn
-EXPOSE 8091
+EXPOSE 3000
 CMD [ "yarn", "serve:dev" ]
 
 
